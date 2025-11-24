@@ -1,0 +1,110 @@
+<!--pages/index/index.wxml-->
+<view class="container">
+  <!-- 顶部导航栏 -->
+  <view class="nav-bar">
+    <view class="search-box" bindtap="onSearchTap">
+      <text class="search-icon">🔍</text>
+      <text class="search-text">搜索</text>
+    </view>
+    <view class="message-icon" bindtap="onMessageTap">
+      <text>💬</text>
+    </view>
+  </view>
+
+  <!-- Banner轮播图 -->
+  <swiper class="banner-swiper" indicator-dots="{{true}}" autoplay="{{true}}" interval="3000" duration="500" circular="{{true}}">
+    <swiper-item>
+      <image class="banner-image" src="https://ai-public.mastergo.com/ai/img_res/c8377b778b1cac83fe9486d6b8ab8d5f.jpg" mode="aspectFill"></image>
+    </swiper-item>
+    <swiper-item>
+      <image class="banner-image" src="https://ai-public.mastergo.com/ai/img_res/c8377b778b1cac83fe9486d6b8ab8d5f.jpg" mode="aspectFill"></image>
+    </swiper-item>
+    <swiper-item>
+      <image class="banner-image" src="https://ai-public.mastergo.com/ai/img_res/c8377b778b1cac83fe9486d6b8ab8d5f.jpg" mode="aspectFill"></image>
+    </swiper-item>
+  </swiper>
+
+  <!-- 快捷功能区 -->
+  <view class="shortcut-grid">
+    <view class="shortcut-item" bindtap="navigateToAR">
+      <view class="shortcut-icon">
+        <image src="https://ai-public.mastergo.com/ai/img_res/c69ece3a9b9a483f300703517220a5b6.jpg" mode="aspectFill"></image>
+      </view>
+      <text class="shortcut-text">AR 场景</text>
+    </view>
+    <view class="shortcut-item" bindtap="navigateToShop">
+      <view class="shortcut-icon">
+        <image src="https://ai-public.mastergo.com/ai/img_res/f84bc91f8ec3f01ef033a9d18826d1e2.jpg" mode="aspectFill"></image>
+      </view>
+      <text class="shortcut-text">商城</text>
+    </view>
+    <view class="shortcut-item" bindtap="navigateToTravel">
+      <view class="shortcut-icon">
+        <image src="https://ai-public.mastergo.com/ai/img_res/6c8bac788ff52c637ed7fa857bc0cafb.jpg" mode="aspectFill"></image>
+      </view>
+      <text class="shortcut-text">旅游</text>
+    </view>
+    <view class="shortcut-item" bindtap="navigateToProfile">
+      <view class="shortcut-icon">
+        <image src="https://ai-public.mastergo.com/ai/img_res/31cf9f1a38f97ea544b83bf285e1b101.jpg" mode="aspectFill"></image>
+      </view>
+      <text class="shortcut-text">我的</text>
+    </view>
+  </view>
+
+  <!-- 农遗百科 -->
+  <view class="section">
+    <view class="section-header">
+      <text class="section-icon">📚</text>
+      <text class="section-title">农遗百科</text>
+    </view>
+    <view class="card-list">
+      <view class="card" bindtap="navigateToBaikeDetail" data-type="xianju">
+        <image class="card-img" src="https://ai-public.mastergo.com/ai/img_res/c0e4afa20c3d20bb20b33925f5ad25ba.jpg" mode="aspectFill"></image>
+        <view class="card-content">
+          <text class="card-title">浙江仙居古杨梅复合种养系统</text>
+          <text class="card-desc">浙江仙居千年杨梅林下，复合种养，实现生态与经济效益双赢。</text>
+        </view>
+      </view>
+      <view class="card" bindtap="navigateToBaikeDetail" data-type="huzhou">
+        <image class="card-img" src="https://ai-public.mastergo.com/ai/img_res/5e13864a07c729c30aa5994b69800d5f.jpg" mode="aspectFill"></image>
+        <view class="card-content">
+          <text class="card-title">浙江湖州桑基鱼塘系统</text>
+          <text class="card-desc">浙江湖州桑基鱼塘系统利用塘基种桑养蚕，形成可持续的生态循环系统。</text>
+        </view>
+      </view>
+      <view class="card" bindtap="navigateToBaikeDetail" data-type="qingtian">
+        <image class="card-img" src="https://ai-public.mastergo.com/ai/img_res/59e5ce65d518f7cd1da1d0205fb300e9.jpg" mode="aspectFill"></image>
+        <view class="card-content">
+          <text class="card-title">浙江青田稻鱼共生系统</text>
+          <text class="card-desc">浙江省青田县的稻鱼共生系统是一种历史悠久的生态农业模式，实现了稻鱼双收。</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 热门推荐 -->
+  <view class="section">
+    <view class="section-header">
+      <text class="section-icon">🔥</text>
+      <text class="section-title">热门推荐</text>
+    </view>
+    <view class="card-list">
+      <view class="card">
+        <image class="card-img" src="https://ai-public.mastergo.com/ai/img_res/3bcdfbe322eacb063b81882a5e0be617.jpg" mode="aspectFill"></image>
+        <view class="card-content">
+          <text class="card-title">2025 农遗文化节</text>
+          <text class="card-desc">探索千年农耕文明，体验传统技艺魅力，限时优惠购票中。</text>
+        </view>
+      </view>
+      <view class="card">
+        <image class="card-img" src="https://ai-public.mastergo.com/ai/img_res/a2ecf55df483459e3a2c64ce8c6b0d31.jpg" mode="aspectFill"></image>
+        <view class="card-content">
+          <text class="card-title">AR 体验上新</text>
+          <text class="card-desc">全新沉浸式 AR 技术带你穿越时空，感受古老农耕智慧。</text>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+

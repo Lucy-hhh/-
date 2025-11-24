@@ -1,0 +1,118 @@
+<!--pages/profile/profile.wxml-->
+<view class="container">
+  <!-- 顶部导航栏 -->
+  <view class="nav-bar">
+    <text class="nav-title">我的</text>
+  </view>
+
+  <!-- 内容区域 -->
+  <view class="content-area">
+    <!-- 用户信息区域 -->
+    <view class="user-card">
+      <view class="user-info">
+        <image class="user-avatar" src="https://ai-public.mastergo.com/ai/img_res/5ed97403e8f4d8c0db8650f0d4ca4c55.jpg" mode="aspectFill"></image>
+        <view class="user-details">
+          <text class="user-name">张明轩</text>
+          <text class="user-phone">📱 138 **** 8921</text>
+        </view>
+        <view class="user-actions">
+          <button class="edit-btn" bindtap="showEditProfile">编辑资料</button>
+          <button class="logout-btn" bindtap="handleLogout">退出登录</button>
+        </view>
+      </view>
+    </view>
+
+    <!-- 数据统计卡片 -->
+    <view class="data-card">
+      <text class="card-title">📊 我的数据</text>
+      <view class="stats-grid">
+        <view class="stat-item" bindtap="showScenes">
+          <text class="stat-number">{{sceneCount}}</text>
+          <text class="stat-label">体验场景</text>
+        </view>
+        <view class="stat-item" bindtap="showFavorites">
+          <text class="stat-number">{{favoriteCount}}</text>
+          <text class="stat-label">收藏商品</text>
+        </view>
+        <view class="stat-item" bindtap="showAllOrders">
+          <text class="stat-number">{{orderCount}}</text>
+          <text class="stat-label">完成订单</text>
+        </view>
+      </view>
+    </view>
+
+    <!-- 订单管理 -->
+    <view class="order-card">
+      <view class="card-header">
+        <text class="card-title">📦 我的订单</text>
+        <text class="view-all" bindtap="showAllOrders">查看全部 →</text>
+      </view>
+      <view class="order-tabs">
+        <view class="order-tab" bindtap="showOrdersByStatus" data-status="pending_payment">
+          <view class="tab-icon-wrapper">
+            <text class="tab-icon">💳</text>
+            <view class="tab-badge" wx:if="{{orderStats.pending_payment > 0}}">{{orderStats.pending_payment}}</view>
+          </view>
+          <text class="tab-label">待付款</text>
+          <text class="tab-count">{{orderStats.pending_payment}}</text>
+        </view>
+        <view class="order-tab" bindtap="showOrdersByStatus" data-status="pending_shipment">
+          <view class="tab-icon-wrapper">
+            <text class="tab-icon">🚚</text>
+            <view class="tab-badge" wx:if="{{orderStats.pending_shipment > 0}}">{{orderStats.pending_shipment}}</view>
+          </view>
+          <text class="tab-label">待发货</text>
+          <text class="tab-count">{{orderStats.pending_shipment}}</text>
+        </view>
+        <view class="order-tab" bindtap="showOrdersByStatus" data-status="pending_receive">
+          <view class="tab-icon-wrapper">
+            <text class="tab-icon">📦</text>
+            <view class="tab-badge" wx:if="{{orderStats.pending_receive > 0}}">{{orderStats.pending_receive}}</view>
+          </view>
+          <text class="tab-label">待收货</text>
+          <text class="tab-count">{{orderStats.pending_receive}}</text>
+        </view>
+        <view class="order-tab" bindtap="showOrdersByStatus" data-status="completed">
+          <view class="tab-icon-wrapper">
+            <text class="tab-icon">⭐</text>
+          </view>
+          <text class="tab-label">待评价</text>
+          <text class="tab-count">{{orderStats.completed}}</text>
+        </view>
+      </view>
+    </view>
+
+    <!-- 功能导航区域 -->
+    <view class="function-card">
+      <view class="function-item" bindtap="showFavorites">
+        <view class="function-left">
+          <text class="function-icon">❤️</text>
+          <text class="function-text">我的收藏</text>
+        </view>
+        <text class="function-arrow">></text>
+      </view>
+      <view class="function-item" bindtap="showItinerary">
+        <view class="function-left">
+          <text class="function-icon">🗺️</text>
+          <text class="function-text">我的行程</text>
+        </view>
+        <text class="function-arrow">></text>
+      </view>
+      <view class="function-item" bindtap="showSettings">
+        <view class="function-left">
+          <text class="function-icon">⚙️</text>
+          <text class="function-text">设置</text>
+        </view>
+        <text class="function-arrow">></text>
+      </view>
+      <view class="function-item" bindtap="showCustomerService">
+        <view class="function-left">
+          <text class="function-icon">🎧</text>
+          <text class="function-text">客服中心</text>
+        </view>
+        <text class="function-arrow">></text>
+      </view>
+    </view>
+  </view>
+</view>
+

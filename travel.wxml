@@ -1,0 +1,74 @@
+<!--pages/travel/travel.wxml-->
+<view class="container">
+  <!-- 导航栏 -->
+  <view class="nav-bar">
+    <text class="nav-title">旅游路线</text>
+  </view>
+
+  <!-- 主内容区 -->
+  <view class="main-content">
+    <!-- 地图预览插件 -->
+    <view class="map-section">
+      <text class="section-title">附近的农业文化遗产地</text>
+      <view class="map-container" bindtap="scrollToRoutes">
+        <view class="map-overlay">
+          <view class="map-tip">
+            <text>点击探索三条精选一日游路线</text>
+          </view>
+          <text class="view-all-link">查看全部路线</text>
+        </view>
+      </view>
+    </view>
+
+    <!-- 智能推荐路线卡片 -->
+    <view class="routes-section" id="recommendedSection">
+      <text class="section-title">为您推荐的路线</text>
+      
+      <!-- 路线卡片 1 -->
+      <view class="route-card">
+        <view class="route-header">
+          <text class="route-title">南浔射中村一日游</text>
+          <text class="route-duration">1 天 0 夜</text>
+        </view>
+        <text class="route-desc">古桥文化+桑基鱼塘+艺术休闲体验</text>
+        <view class="route-tags">
+          <text class="tag">全球农业遗产</text>
+          <text class="tag">艺术赋能</text>
+          <text class="tag">古村漫步</text>
+        </view>
+        <button class="route-btn" bindtap="navigateToDetail" data-id="1">查看详情</button>
+      </view>
+
+      <!-- 路线卡片 2 -->
+      <view class="route-card">
+        <view class="route-header">
+          <text class="route-title">青田龙现村一日游</text>
+          <text class="route-duration">1 天 0 夜</text>
+        </view>
+        <text class="route-desc">侨乡文化+稻鱼共生+非遗鱼灯舞</text>
+        <view class="route-tags">
+          <text class="tag">全球农业遗产</text>
+          <text class="tag">侨乡寻味</text>
+          <text class="tag">非遗体验</text>
+        </view>
+        <button class="route-btn" bindtap="navigateToDetail" data-id="2">查看详情</button>
+      </view>
+
+      <!-- 路线卡片 3 -->
+      <view class="route-card">
+        <view class="route-header">
+          <text class="route-title">仙居杨岸村一日游</text>
+          <text class="route-duration">1 天 0 夜</text>
+        </view>
+        <text class="route-desc">千年杨梅+溪畔休闲+酒窖品鉴</text>
+        <view class="route-tags">
+          <text class="tag">仙梅文化</text>
+          <text class="tag">溪畔休闲</text>
+          <text class="tag">酒窖体验</text>
+        </view>
+        <button class="route-btn" bindtap="navigateToDetail" data-id="3">查看详情</button>
+      </view>
+    </view>
+  </view>
+</view>
+

@@ -1,0 +1,21 @@
+/* pages/travel-detail/travel-detail.wxss */
+.container {
+  padding: 40rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+.placeholder-text {
+  font-size: 32rpx;
+  color: #333333;
+  margin-bottom: 24rpx;
+}
+
+.route-id {
+  font-size: 28rpx;
+  color: #666666;
+}
+

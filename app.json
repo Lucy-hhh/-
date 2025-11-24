@@ -1,0 +1,62 @@
+{
+  "pages": [
+    "pages/login/login",
+    "pages/index/index",
+    "pages/ar/ar",
+    "pages/shop/shop",
+    "pages/travel/travel",
+    "pages/profile/profile",
+    "pages/product-detail/product-detail",
+    "pages/baike-detail/baike-detail",
+    "pages/travel-detail/travel-detail"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#FFFFFF",
+    "navigationBarTitleText": "智绘农遗",
+    "navigationBarTextStyle": "black",
+    "backgroundColor": "#FFFFFF"
+  },
+  "tabBar": {
+    "color": "#999999",
+    "selectedColor": "#D4AF37",
+    "backgroundColor": "#FFFFFF",
+    "borderStyle": "black",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "image/shouye.png",
+        "selectedIconPath": "image/shouyeactive.png"
+      },
+      {
+        "pagePath": "pages/ar/ar",
+        "text": "场景",
+        "iconPath": "image/changjing.png",
+        "selectedIconPath": "image/changjingactive.png"
+      },
+      {
+        "pagePath": "pages/shop/shop",
+        "text": "商城",
+        "iconPath": "image/shangcheng.png",
+        "selectedIconPath": "image/shangchengactive.png"
+      },
+      {
+        "pagePath": "pages/travel/travel",
+        "text": "旅游",
+        "iconPath": "image/lvyou.png",
+        "selectedIconPath": "image/lvyouactive.png"
+      },
+      {
+        "pagePath": "pages/profile/profile",
+        "text": "我的",
+        "iconPath": "image/wode.png",
+        "selectedIconPath": "image/wodeactive.png"
+      }
+    ]
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json",
+  "lazyCodeLoading": "requiredComponents"
+}
+

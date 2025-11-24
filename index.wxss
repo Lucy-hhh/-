@@ -1,0 +1,154 @@
+/* pages/index/index.wxss */
+.container {
+  padding-top: 120rpx;
+  padding-bottom: 120rpx;
+}
+
+.nav-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 120rpx;
+  background-color: #FFFFFF;
+  box-shadow: 0 4rpx 20rpx rgba(0, 0, 0, 0.05);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 40rpx;
+  z-index: 1000;
+}
+
+.search-box {
+  display: flex;
+  align-items: center;
+  background-color: #F5F5F5;
+  border-radius: 40rpx;
+  padding: 16rpx 32rpx;
+  flex: 1;
+  max-width: 520rpx;
+}
+
+.search-icon {
+  font-size: 32rpx;
+  margin-right: 16rpx;
+  color: #999999;
+}
+
+.search-text {
+  font-size: 28rpx;
+  color: #999999;
+}
+
+.message-icon {
+  font-size: 40rpx;
+  color: #333333;
+  margin-left: 32rpx;
+}
+
+.banner-swiper {
+  width: 100%;
+  height: 384rpx;
+  margin-bottom: 40rpx;
+}
+
+.banner-image {
+  width: 100%;
+  height: 100%;
+}
+
+.shortcut-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 40rpx;
+  padding: 40rpx;
+}
+
+.shortcut-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16rpx;
+}
+
+.shortcut-icon {
+  width: 112rpx;
+  height: 112rpx;
+  border-radius: 24rpx;
+  background-color: #F0F0F0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.shortcut-icon image {
+  width: 100%;
+  height: 100%;
+}
+
+.shortcut-text {
+  font-size: 24rpx;
+  text-align: center;
+  color: #333333;
+}
+
+.section {
+  padding: 0 40rpx 40rpx;
+}
+
+.section-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 32rpx;
+}
+
+.section-icon {
+  font-size: 36rpx;
+  margin-right: 16rpx;
+}
+
+.section-title {
+  font-size: 36rpx;
+  font-weight: 600;
+  color: #333333;
+}
+
+.card-list {
+  display: flex;
+  flex-direction: column;
+  gap: 32rpx;
+}
+
+.card {
+  border-radius: 24rpx;
+  overflow: hidden;
+  box-shadow: 0 8rpx 24rpx rgba(0, 0, 0, 0.05);
+  background-color: #FFFFFF;
+}
+
+.card-img {
+  width: 100%;
+  height: 240rpx;
+}
+
+.card-content {
+  padding: 32rpx;
+}
+
+.card-title {
+  font-size: 32rpx;
+  font-weight: 500;
+  color: #333333;
+  margin-bottom: 16rpx;
+  display: block;
+}
+
+.card-desc {
+  font-size: 24rpx;
+  color: #666666;
+  display: block;
+  line-height: 1.6;
+}
+

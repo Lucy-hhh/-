@@ -1,0 +1,51 @@
+<!--pages/baike-detail/baike-detail.wxml-->
+<view class="container">
+  <!-- 返回按钮 -->
+  <view class="back-button" bindtap="goBack">
+    <text>←</text>
+  </view>
+
+  <!-- 头部图片 -->
+  <image class="header-image" src="{{baikeData.headerImage}}" mode="aspectFill"></image>
+
+  <!-- 标题区域 -->
+  <view class="content-section">
+    <text class="baike-title">{{baikeData.title}}</text>
+    <text class="baike-subtitle">{{baikeData.subtitle}}</text>
+    
+    <view class="highlight-box">
+      <text class="highlight-text">{{baikeData.highlight}}</text>
+    </view>
+  </view>
+
+  <!-- 基本信息 -->
+  <view class="content-section">
+    <text class="section-title">ℹ️ 基本信息</text>
+    <view class="info-list">
+      <view class="info-item" wx:for="{{baikeData.basicInfo}}" wx:key="label">
+        <text class="info-label">{{item.label}}：</text>
+        <text class="info-value">{{item.value}}</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 统计数据 -->
+  <view class="content-section">
+    <text class="section-title">📊 关键数据</text>
+    <view class="stat-grid">
+      <view class="stat-item" wx:for="{{baikeData.stats}}" wx:key="label">
+        <text class="stat-number">{{item.number}}</text>
+        <text class="stat-label">{{item.label}}</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 其他内容区域 -->
+  <view class="content-section" wx:for="{{baikeData.sections}}" wx:key="title">
+    <text class="section-title">{{item.title}}</text>
+    <view class="section-content">
+      <text class="section-text" wx:for="{{item.content}}" wx:key="*this">{{item}}</text>
+    </view>
+  </view>
+</view>
+

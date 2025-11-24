@@ -1,0 +1,6 @@
+<!--pages/travel-detail/travel-detail.wxml-->
+<view class="container">
+  <text class="placeholder-text">旅游路线详情页面</text>
+  <text class="route-id">路线ID: {{routeId}}</text>
+</view>
+

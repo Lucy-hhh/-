@@ -1,0 +1,52 @@
+<!--pages/ar/ar.wxml-->
+<view class="container">
+  <!-- 返回首页按钮 -->
+  <view class="back-btn" bindtap="goBack">
+    <text>←</text>
+  </view>
+
+  <!-- 地图控制按钮 -->
+  <view class="map-controls">
+    <view class="control-btn" bindtap="locateCurrent">
+      <text>📍</text>
+    </view>
+    <view class="control-btn" bindtap="toggleMapType">
+      <text>🗺️</text>
+    </view>
+  </view>
+
+  <!-- 地图容器 -->
+  <view class="map-container">
+    <text class="map-placeholder">地图功能（需要配置地图组件）</text>
+  </view>
+
+  <!-- 底部操作区域 -->
+  <view class="bottom-panel">
+    <view class="panel-content">
+      <!-- 场景说明文字 -->
+      <text class="scene-desc">{{currentScene.description}}</text>
+
+      <!-- 场景选择模块 -->
+      <view class="scene-selector">
+        <view 
+          class="scene-card {{currentSceneIndex === index ? 'active' : ''}}" 
+          wx:for="{{scenes}}" 
+          wx:key="index"
+          bindtap="selectScene"
+          data-index="{{index}}"
+        >
+          <view class="scene-icon">
+            <image src="{{item.icon}}" mode="aspectFill"></image>
+          </view>
+          <text class="scene-name">{{item.name}}</text>
+        </view>
+      </view>
+
+      <!-- 主操作按钮 -->
+      <button class="ar-button" bindtap="startAR">
+        {{currentScene.buttonText}}
+      </button>
+    </view>
+  </view>
+</view>
+
