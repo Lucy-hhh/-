@@ -1,0 +1,537 @@
+/* pages/travel-detail/travel-detail.wxss */
+.container {
+  background-color: #F7F7F7;
+  min-height: 100vh;
+  padding-bottom: 200rpx;
+}
+
+/* 顶部导航栏 */
+.nav-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 112rpx;
+  background-color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 32rpx;
+  z-index: 10;
+  box-shadow: 0 2rpx 8rpx rgba(0, 0, 0, 0.1);
+}
+
+.nav-back {
+  width: 48rpx;
+  height: 48rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.back-icon {
+  font-size: 36rpx;
+  color: #333333;
+}
+
+.nav-title {
+  font-size: 36rpx;
+  font-weight: bold;
+  color: #333333;
+}
+
+.nav-placeholder {
+  width: 48rpx;
+}
+
+/* Tab 栏 */
+.tab-bar {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 112rpx;
+  margin-bottom: 48rpx;
+  padding: 0 16rpx;
+}
+
+.tab-item {
+  padding: 16rpx 8rpx;
+  font-size: 28rpx;
+  color: #999999;
+  position: relative;
+}
+
+.tab-item.active {
+  color: #4CAF50;
+  font-weight: 500;
+}
+
+.tab-item.active::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 8rpx;
+  right: 8rpx;
+  height: 4rpx;
+  background-color: #4CAF50;
+}
+
+/* 路线卡片 */
+.route-card {
+  margin: 0 32rpx 48rpx;
+  background-color: #FFFFFF;
+  border-radius: 16rpx;
+  overflow: hidden;
+  box-shadow: 0 4rpx 12rpx rgba(0, 0, 0, 0.1);
+}
+
+.route-header {
+  position: relative;
+  height: 256rpx;
+  background: linear-gradient(135deg, #E0E0E0 0%, #BDBDBD 100%);
+}
+
+.route-image {
+  width: 100%;
+  height: 100%;
+}
+
+.route-badge {
+  position: absolute;
+  top: 16rpx;
+  right: 16rpx;
+  background-color: #4CAF50;
+  color: #FFFFFF;
+  font-size: 24rpx;
+  padding: 8rpx 16rpx;
+  border-radius: 8rpx;
+}
+
+.route-content {
+  padding: 32rpx;
+}
+
+.route-title {
+  font-size: 40rpx;
+  font-weight: bold;
+  color: #333333;
+  margin-bottom: 16rpx;
+  display: block;
+}
+
+.route-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16rpx;
+  margin-bottom: 24rpx;
+}
+
+.tag {
+  background-color: #D4AF37;
+  color: #FFFFFF;
+  font-size: 24rpx;
+  padding: 8rpx 16rpx;
+  border-radius: 8rpx;
+}
+
+.route-info {
+  display: flex;
+  flex-direction: column;
+  gap: 8rpx;
+  margin-bottom: 16rpx;
+}
+
+.info-item {
+  font-size: 28rpx;
+  color: #666666;
+}
+
+.route-price-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 32rpx;
+  padding-top: 32rpx;
+  border-top: 1rpx solid #F0F0F0;
+}
+
+.price-left {
+  display: flex;
+  flex-direction: column;
+}
+
+.price-main {
+  font-size: 40rpx;
+  font-weight: bold;
+  color: #D4AF37;
+}
+
+.price-child {
+  font-size: 28rpx;
+  color: #666666;
+  margin-top: 8rpx;
+}
+
+.price-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.sold-count {
+  font-size: 28rpx;
+  color: #666666;
+}
+
+.sold-status {
+  font-size: 24rpx;
+  color: #999999;
+  margin-top: 4rpx;
+}
+
+/* 行程时间轴 */
+.schedule-section {
+  margin: 0 32rpx 48rpx;
+}
+
+.timeline-container {
+  position: relative;
+  padding-bottom: 48rpx;
+}
+
+.timeline-line {
+  position: absolute;
+  left: 0;
+  top: 40rpx;
+  bottom: -40rpx;
+  width: 2rpx;
+  border-left: 2rpx dashed #E0E0E0;
+}
+
+.timeline-content {
+  margin-left: 32rpx;
+}
+
+.schedule-item {
+  position: relative;
+  margin-bottom: 48rpx;
+}
+
+.timeline-dot {
+  position: absolute;
+  left: -38rpx;
+  top: 16rpx;
+  width: 24rpx;
+  height: 24rpx;
+  background-color: #4CAF50;
+  border-radius: 50%;
+}
+
+.schedule-time {
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #333333;
+  margin-bottom: 8rpx;
+  display: block;
+}
+
+.schedule-title {
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #333333;
+  margin-bottom: 8rpx;
+  display: block;
+}
+
+.schedule-desc {
+  font-size: 28rpx;
+  color: #666666;
+  margin-bottom: 16rpx;
+  display: block;
+  line-height: 1.6;
+}
+
+.schedule-tip {
+  display: flex;
+  align-items: flex-start;
+  background-color: #F5F5F5;
+  border: 2rpx solid #F0F0F0;
+  padding: 16rpx;
+  border-radius: 8rpx;
+}
+
+.tip-icon {
+  font-size: 28rpx;
+  margin-right: 16rpx;
+  margin-top: 4rpx;
+}
+
+.tip-text {
+  font-size: 24rpx;
+  color: #999999;
+  flex: 1;
+  line-height: 1.5;
+}
+
+/* 底部操作栏 */
+.bottom-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: #FFFFFF;
+  padding: 32rpx;
+  border-top: 2rpx solid #F0F0F0;
+  z-index: 10;
+}
+
+.order-btn {
+  width: 100%;
+  height: 96rpx;
+  background-color: #4CAF50;
+  color: #FFFFFF;
+  font-size: 32rpx;
+  font-weight: bold;
+  border-radius: 48rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+}
+
+.order-btn::after {
+  border: none;
+}
+
+/* 价格面板 */
+.price-panel {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: #FFFFFF;
+  border-radius: 32rpx 32rpx 0 0;
+  box-shadow: 0 -8rpx 40rpx rgba(0, 0, 0, 0.15);
+  transform: translateY(100%);
+  transition: transform 0.3s ease;
+  z-index: 30;
+  padding: 32rpx;
+  max-height: 70vh;
+  overflow-y: auto;
+}
+
+.price-panel.open {
+  transform: translateY(0);
+}
+
+.panel-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 32rpx;
+}
+
+.panel-title {
+  font-size: 36rpx;
+  font-weight: bold;
+  color: #333333;
+}
+
+.panel-close {
+  width: 48rpx;
+  height: 48rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 40rpx;
+  color: #999999;
+}
+
+/* 人数选择器 */
+.count-selector {
+  margin-bottom: 48rpx;
+}
+
+.count-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24rpx;
+  background-color: #F5F5F5;
+  border-radius: 16rpx;
+  margin-bottom: 32rpx;
+}
+
+.count-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.count-label {
+  font-size: 32rpx;
+  font-weight: 500;
+  color: #333333;
+}
+
+.count-price {
+  font-size: 28rpx;
+  color: #999999;
+  margin-top: 8rpx;
+}
+
+.count-controls {
+  display: flex;
+  align-items: center;
+  gap: 24rpx;
+}
+
+.count-btn {
+  width: 64rpx;
+  height: 64rpx;
+  border-radius: 50%;
+  background-color: #FFFFFF;
+  border: 2rpx solid #E0E0E0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 32rpx;
+  color: #666666;
+  padding: 0;
+  margin: 0;
+}
+
+.count-btn::after {
+  border: none;
+}
+
+.count-btn[disabled] {
+  opacity: 0.5;
+}
+
+.count-value {
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #333333;
+  width: 48rpx;
+  text-align: center;
+}
+
+/* 价格明细 */
+.price-details {
+  margin-bottom: 48rpx;
+}
+
+.details-title {
+  font-size: 32rpx;
+  font-weight: 500;
+  color: #333333;
+  margin-bottom: 24rpx;
+  display: block;
+}
+
+.details-list {
+  background-color: #F5F5F5;
+  padding: 24rpx;
+  border-radius: 16rpx;
+}
+
+.detail-item {
+  display: flex;
+  justify-content: space-between;
+  font-size: 28rpx;
+  margin-bottom: 24rpx;
+}
+
+.detail-name {
+  color: #666666;
+}
+
+.detail-price {
+  font-weight: 500;
+  color: #333333;
+}
+
+.detail-total {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 16rpx;
+  margin-top: 16rpx;
+  border-top: 2rpx solid #E0E0E0;
+}
+
+.total-label {
+  font-size: 28rpx;
+  font-weight: 600;
+  color: #333333;
+}
+
+.total-price {
+  font-size: 28rpx;
+  font-weight: 600;
+  color: #333333;
+}
+
+/* 价格底部 */
+.price-footer {
+  border-top: 2rpx solid #E0E0E0;
+  padding-top: 32rpx;
+}
+
+.total-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 32rpx;
+}
+
+.total-label-small {
+  font-size: 28rpx;
+  color: #666666;
+}
+
+.total-price-large {
+  font-size: 48rpx;
+  font-weight: bold;
+  color: #D4AF37;
+}
+
+.confirm-btn {
+  width: 100%;
+  height: 96rpx;
+  background-color: #4CAF50;
+  color: #FFFFFF;
+  font-size: 32rpx;
+  font-weight: bold;
+  border-radius: 48rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  margin-bottom: 16rpx;
+}
+
+.confirm-btn::after {
+  border: none;
+}
+
+.price-note {
+  font-size: 24rpx;
+  color: #999999;
+  text-align: center;
+  display: block;
+}
+
+/* 遮罩层 */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 20;
+  display: none;
+}
+
+.overlay.show {
+  display: block;
+}

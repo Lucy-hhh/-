@@ -1,0 +1,78 @@
+<!--pages/login/login.wxml-->
+<view class="login-container">
+  <!-- 背景图片 -->
+  <image class="natural-bg" src="https://ai-public.mastergo.com/ai/img_res/fe407ce8f3f349268969ed867bf20687.jpg" mode="aspectFill"></image>
+  
+  <!-- 主内容 -->
+  <view class="main-content">
+    <!-- Logo区域 -->
+    <view class="logo-section">
+      <view class="logo-wrapper">
+        <view class="logo-circle">
+          <text class="logo-icon">🌱</text>
+          <view class="logo-badge">
+            <text class="badge-icon">🍃</text>
+          </view>
+        </view>
+        <text class="logo-text">智绘农遗</text>
+        <text class="logo-subtitle">传承农业文化遗产</text>
+      </view>
+    </view>
+
+    <!-- 输入区域 -->
+    <view class="input-section">
+      <view class="input-wrapper">
+        <input 
+          class="input-field" 
+          type="number" 
+          placeholder="请输入您的手机号码"
+          value="{{phone}}"
+          bindinput="onPhoneInput"
+          maxlength="11"
+        />
+      </view>
+      <view class="input-wrapper code-wrapper">
+        <input 
+          class="input-field" 
+          type="number" 
+          placeholder="请输入短信验证码"
+          value="{{code}}"
+          bindinput="onCodeInput"
+          maxlength="6"
+        />
+        <button 
+          class="code-btn {{countdown > 0 ? 'disabled' : ''}}" 
+          bindtap="getCode"
+          disabled="{{countdown > 0}}"
+        >
+          {{countdown > 0 ? countdown + '秒后重新获取' : '获取验证码'}}
+        </button>
+      </view>
+    </view>
+
+    <!-- 登录按钮 -->
+    <button class="login-btn" bindtap="handleLogin">
+      <text>登录</text>
+    </button>
+
+    <!-- 微信登录 -->
+    <button class="wechat-btn" bindtap="handleWechatLogin">
+      <text class="wechat-icon">💬</text>
+      <text>微信一键登录</text>
+    </button>
+
+    <!-- 注册链接 -->
+    <view class="register-link">
+      <text class="link-text" bindtap="handleRegister">还没有账号？立即注册</text>
+    </view>
+  </view>
+
+  <!-- 协议区域 -->
+  <view class="agreement-section">
+    <text class="agreement-text">使用即同意</text>
+    <text class="agreement-link" bindtap="showAgreement">《服务协议》</text>
+    <text class="agreement-text">和</text>
+    <text class="agreement-link" bindtap="showPrivacy">《隐私政策》</text>
+  </view>
+</view>
+

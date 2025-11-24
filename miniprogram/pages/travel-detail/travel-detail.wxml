@@ -1,0 +1,137 @@
+<!--pages/travel-detail/travel-detail.wxml-->
+<view class="container" wx:if="{{route}}">
+  <!-- 顶部导航栏 -->
+  <view class="nav-bar">
+    <view class="nav-back" bindtap="goBack">
+      <text class="back-icon">←</text>
+    </view>
+    <text class="nav-title">一日游路线</text>
+    <view class="nav-placeholder"></view>
+  </view>
+
+  <!-- 路线筛选 Tab 栏 -->
+  <view class="tab-bar">
+    <view class="tab-item {{routeId === '1' ? 'active' : ''}}" bindtap="loadRoute" data-id="1">南浔射中村</view>
+    <view class="tab-item {{routeId === '2' ? 'active' : ''}}" bindtap="loadRoute" data-id="2">青田龙现村</view>
+    <view class="tab-item {{routeId === '3' ? 'active' : ''}}" bindtap="loadRoute" data-id="3">仙居杨岸村</view>
+  </view>
+
+  <!-- 路线总览卡片 -->
+  <view class="route-card">
+    <view class="route-header">
+      <view class="route-image"></view>
+      <text class="route-badge">一日游</text>
+    </view>
+    <view class="route-content">
+      <text class="route-title">{{route.title}}</text>
+      <view class="route-tags">
+        <text class="tag" wx:for="{{route.tags}}" wx:key="index">{{item}}</text>
+      </view>
+      <view class="route-info">
+        <text class="info-item">📍 {{route.location}}</text>
+        <text class="info-item">⏱ {{route.duration}}</text>
+      </view>
+      <view class="route-price-info">
+        <view class="price-left">
+          <text class="price-main">￥{{route.adultPrice}}/人</text>
+          <text class="price-child">儿童 ￥{{route.childPrice}}/人</text>
+        </view>
+        <view class="price-right">
+          <text class="sold-count">已售 {{route.sold}}</text>
+          <text class="sold-status">{{route.status}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 时间轴行程组件 -->
+  <view class="schedule-section">
+    <view class="timeline-container">
+      <view class="timeline-line"></view>
+      <view class="timeline-content">
+        <view class="schedule-item" wx:for="{{route.schedule}}" wx:key="index">
+          <view class="timeline-dot"></view>
+          <text class="schedule-time">{{item.time}}</text>
+          <text class="schedule-title">{{item.title}}</text>
+          <text class="schedule-desc">{{item.desc}}</text>
+          <view class="schedule-tip">
+            <text class="tip-icon">💡</text>
+            <text class="tip-text">{{item.tip}}</text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 底部操作栏 -->
+  <view class="bottom-bar">
+    <button class="order-btn" bindtap="showPricePanel">立即下单</button>
+  </view>
+
+  <!-- 价格面板 -->
+  <view class="price-panel {{showPricePanel ? 'open' : ''}}" wx:if="{{showPricePanel}}">
+    <view class="panel-header">
+      <text class="panel-title">选择人数</text>
+      <view class="panel-close" bindtap="closePricePanel">
+        <text>✕</text>
+      </view>
+    </view>
+
+    <!-- 人数选择器 -->
+    <view class="count-selector">
+      <!-- 成人选择 -->
+      <view class="count-item">
+        <view class="count-info">
+          <text class="count-label">成人</text>
+          <text class="count-price">￥{{route.adultPrice}}/人</text>
+        </view>
+        <view class="count-controls">
+          <button class="count-btn" bindtap="decreaseAdult" disabled="{{adultCount <= 1}}">-</button>
+          <text class="count-value">{{adultCount}}</text>
+          <button class="count-btn" bindtap="increaseAdult">+</button>
+        </view>
+      </view>
+
+      <!-- 儿童选择 -->
+      <view class="count-item">
+        <view class="count-info">
+          <text class="count-label">儿童 (3-12岁)</text>
+          <text class="count-price">￥{{route.childPrice}}/人 · 3岁以下免费</text>
+        </view>
+        <view class="count-controls">
+          <button class="count-btn" bindtap="decreaseChild" disabled="{{childCount <= 0}}">-</button>
+          <text class="count-value">{{childCount}}</text>
+          <button class="count-btn" bindtap="increaseChild">+</button>
+        </view>
+      </view>
+    </view>
+
+    <!-- 价格明细 -->
+    <view class="price-details">
+      <text class="details-title">费用明细</text>
+      <view class="details-list">
+        <view class="detail-item" wx:for="{{route.priceDetails}}" wx:key="index">
+          <text class="detail-name">{{item.name}}</text>
+          <text class="detail-price">￥{{item.price}}</text>
+        </view>
+        <view class="detail-total">
+          <text class="total-label">小计</text>
+          <text class="total-price">￥{{route.adultPrice}}</text>
+        </view>
+      </view>
+    </view>
+
+    <!-- 总价和下单按钮 -->
+    <view class="price-footer">
+      <view class="total-section">
+        <text class="total-label-small">总计</text>
+        <text class="total-price-large">￥{{totalPrice}}</text>
+      </view>
+      <button class="confirm-btn" bindtap="confirmOrder">确认下单</button>
+      <text class="price-note">费用包含：景点门票、导览服务、基础保险</text>
+    </view>
+  </view>
+
+  <!-- 遮罩层 -->
+  <view class="overlay {{showPricePanel ? 'show' : ''}}" bindtap="closePricePanel" wx:if="{{showPricePanel}}"></view>
+</view>

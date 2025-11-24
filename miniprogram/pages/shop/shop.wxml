@@ -1,0 +1,51 @@
+<!--pages/shop/shop.wxml-->
+<view class="container">
+  <!-- 顶部导航栏 -->
+  <view class="nav-bar">
+    <text class="logo-text">智绘农遗</text>
+    <view class="search-box" bindtap="onSearchTap">
+      <text class="search-icon">🔍</text>
+      <text class="search-text">输入你想找的商品</text>
+    </view>
+  </view>
+
+  <!-- 主内容区域 -->
+  <view class="main-content">
+    <!-- 商品分类标签 -->
+    <view class="category-section">
+      <text class="section-title">商品分类</text>
+      <view class="category-grid">
+        <view class="category-item" bindtap="navigateToCategory" data-type="dilibiao">
+          <image class="category-icon" src="https://ai-public.mastergo.com/ai/img_res/48ab8c7a1731081814f74d6a847859dd.jpg" mode="aspectFill"></image>
+          <text class="category-text">地理标志产品</text>
+        </view>
+        <view class="category-item" bindtap="navigateToCategory" data-type="wenchuang">
+          <image class="category-icon" src="https://ai-public.mastergo.com/ai/img_res/152e87ad27b1c2ff2b3d8e00cc279640.jpg" mode="aspectFill"></image>
+          <text class="category-text">文创衍生品</text>
+        </view>
+      </view>
+    </view>
+
+    <!-- 商品卡片列表 -->
+    <view class="product-section">
+      <text class="section-title">热门商品</text>
+      <view class="product-grid">
+        <view class="product-card" wx:for="{{products}}" wx:key="id" bindtap="navigateToDetail" data-id="{{item.id}}">
+          <image class="product-image" src="{{item.image}}" mode="aspectFill"></image>
+          <view class="product-info">
+            <text class="product-name">{{item.name}}</text>
+            <text class="product-price">¥{{item.price}}/{{item.unit}}</text>
+            <button class="buy-btn" catchtap="buyNow" data-id="{{item.id}}">立即购买</button>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- FAB 悬浮按钮 -->
+  <view class="fab-button" bindtap="showCart">
+    <text class="fab-icon">🛒</text>
+    <view class="cart-badge" wx:if="{{cartCount > 0}}">{{cartCount > 99 ? '99+' : cartCount}}</view>
+  </view>
+</view>
+

@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>一日游路线</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Noto+Serif+SC:wght@700&family=Alibaba+PuHuiTi+2:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config = {
+  theme: {
+    extend: {
+      colors: {
+        primary: '#4CAF50',
+        secondary: '#D4AF37'
+      },
+      borderRadius: {
+        'none': '0px',
+        'sm': '4px',
+        'DEFAULT': '8px',
+        'md': '12px',
+        'lg': '16px',
+        'xl': '20px',
+        '2xl': '24px',
+        '3xl': '32px',
+        'full': '9999px',
+        'button': '24px'
+      },
+      fontFamily: {
+        'serif-title': ['Noto Serif SC', 'serif'],
+        'sans-body': ['Alibaba PuHuiTi 2', 'sans-serif']
+      }
+    }
+  }
+};
+</script>
+<style>
+body {
+  font-family: 'Alibaba PuHuiTi 2', sans-serif;
+  background-color: #F7F7F7;
+  color: #333;
+  padding-top: 56px;
+  padding-bottom: 80px;
+}
+.tab-item.active {
+  color: #4CAF50;
+  border-bottom: 2px solid #4CAF50;
+}
+.tab-item:hover:not(.active) {
+  color: #4CAF50;
+  transition: color 0.2s ease;
+}
+.timeline-dot {
+  width: 12px;
+  height: 12px;
+  background-color: #4CAF50;
+  border-radius: 50%;
+  position: absolute;
+  left: -6px;
+  top: 8px;
+}
+.timeline-line {
+  position: absolute;
+  left: 0;
+  top: 20px;
+  bottom: -20px;
+  width: 1px;
+  border-left: 1px dashed #E0E0E0;
+}
+.card-shadow {
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+.price-panel {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: white;
+  border-radius: 16px 16px 0 0;
+  box-shadow: 0 -4px 20px rgba(0,0,0,0.15);
+  transform: translateY(100%);
+  transition: transform 0.3s ease;
+  z-index: 30;
+  padding: 16px;
+  max-height: 70vh;
+  overflow-y: auto;
+}
+.price-panel.open {
+  transform: translateY(0);
+}
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0,0,0,0.5);
+  z-index: 20;
+  display: none;
+}
+</style>
+</head>
+<body class="bg-gray-50">
+<!-- 顶部导航栏 -->
+<nav class="fixed top-0 left-0 w-full bg-white h-14 flex items-center justify-between px-4 z-10">
+  <i class="fas fa-arrow-left text-gray-700 text-lg cursor-pointer" onclick="window.location.href='lvyouluxian.html'"></i>
+  <h1 class="font-serif-title font-bold text-lg">一日游路线</h1>
+  <div class="w-6"></div>
+</nav>
+
+<!-- 路线筛选 Tab 栏 -->
+<div class="flex justify-around mt-4 mb-6 px-2">
+  <div class="tab-item py-2 px-1 text-sm font-medium text-gray-500 cursor-pointer" onclick="window.location.href='lvyoujiemian1.html'">南浔射中村</div>
+  <div class="tab-item active py-2 px-1 text-sm font-medium cursor-pointer">青田龙现村</div>
+  <div class="tab-item py-2 px-1 text-sm font-medium text-gray-500 cursor-pointer" onclick="window.location.href='lvyoujiemian3.html'">仙居杨岸村</div>
+</div>
+
+<!-- 路线总览卡片 -->
+<div class="mx-4 mb-6 card-shadow rounded-md overflow-hidden bg-white">
+  <div class="relative">
+    <div class="bg-gradient-to-r from-green-500 to-green-700 h-32 w-full"></div>
+    <span class="absolute top-2 right-2 bg-primary text-white text-xs px-2 py-1 rounded">一日游</span>
+  </div>
+  <div class="p-4">
+    <h2 class="font-serif-title font-bold text-xl mb-2">青田龙现村：农遗探秘+侨乡寻味一日游</h2>
+    <div class="flex flex-wrap gap-2 mb-3">
+      <span class="bg-secondary text-white text-xs px-2 py-1 rounded">全球农业遗产</span>
+      <span class="bg-secondary text-white text-xs px-2 py-1 rounded">侨乡文化</span>
+      <span class="bg-secondary text-white text-xs px-2 py-1 rounded">非遗体验</span>
+    </div>
+    <div class="flex items-center text-gray-600 text-sm mb-1">
+      <i class="fas fa-map-marker-alt mr-2"></i>
+      <span>📍 丽水青田</span>
+    </div>
+    <div class="flex items-center text-gray-600 text-sm">
+      <i class="fas fa-clock mr-2"></i>
+      <span>⏱ 全程约 9 小时</span>
+    </div>
+    <div class="flex justify-between items-center mt-4">
+      <div>
+        <div class="text-secondary font-bold text-xl">￥168/人</div>
+        <div class="text-gray-600 text-sm">儿童 ￥88/人</div>
+      </div>
+      <div class="text-right">
+        <div class="text-gray-600 text-sm">已售 426</div>
+        <div class="text-gray-400 text-xs">近期热销</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 时间轴行程组件 -->
+<div class="mx-4 mb-6">
+  <div class="flex pb-6 relative">
+    <div class="timeline-line"></div>
+    <div class="ml-4 flex-1">
+      <!-- 行程项 1 -->
+      <div class="mb-6">
+        <div class="timeline-dot"></div>
+        <p class="font-sans-body font-bold text-base text-gray-700 mb-1">08:30 - 10:00</p>
+        <h3 class="font-sans-body font-bold text-base text-gray-800 mb-1">村口 → 吴氏旧宅 → 侨乡货币陈列馆</h3>
+        <p class="font-sans-body text-sm text-gray-600 mb-2">感受"联合国村"侨味，参观中西合璧古建，了解华侨侨居史</p>
+        <div class="flex items-start bg-gray-50 border border-gray-100 p-2 rounded">
+          <i class="fas fa-lightbulb text-yellow-500 mt-0.5 mr-2 text-sm"></i>
+          <p class="font-sans-body text-xs text-gray-500">吴氏旧宅建议听讲解（需提前预约）；货币陈列馆可拍照记录特色外币</p>
+        </div>
+      </div>
+      
+      <!-- 行程项 2 -->
+      <div class="mb-6">
+        <div class="timeline-dot"></div>
+        <p class="font-sans-body font-bold text-base text-gray-700 mb-1">10:15 - 11:45</p>
+        <h3 class="font-sans-body font-bold text-base text-gray-800 mb-1">稻鱼共生核心区 → 农耕文化馆 → 十八潭瀑布群</h3>
+        <p class="font-sans-body text-sm text-gray-600 mb-2">体验抓田鱼、了解农遗技术，徒步观瀑布</p>
+        <div class="flex items-start bg-gray-50 border border-gray-100 p-2 rounded">
+          <i class="fas fa-lightbulb text-yellow-500 mt-0.5 mr-2 text-sm"></i>
+          <p class="font-sans-body text-xs text-gray-500">抓田鱼需穿防滑鞋；十八潭雨后水量足，景观更壮观</p>
+        </div>
+      </div>
+      
+      <!-- 行程项 3 -->
+      <div class="mb-6">
+        <div class="timeline-dot"></div>
+        <p class="font-sans-body font-bold text-base text-gray-700 mb-1">12:00 - 13:30</p>
+        <h3 class="font-sans-body font-bold text-base text-gray-800 mb-1">渔家乐 → 稻田休憩</h3>
+        <p class="font-sans-body text-sm text-gray-600 mb-2">品尝红烧田鱼、稻鱼米饭等农家菜，乡村慢时光小憩</p>
+        <div class="flex items-start bg-gray-50 border border-gray-100 p-2 rounded">
+          <i class="fas fa-lightbulb text-yellow-500 mt-0.5 mr-2 text-sm"></i>
+          <p class="font-sans-body text-xs text-gray-500">渔家乐建议提前1小时预约；可顺路买现做田鱼干</p>
+        </div>
+      </div>
+      
+      <!-- 行程项 4 -->
+      <div class="mb-6">
+        <div class="timeline-dot"></div>
+        <p class="font-sans-body font-bold text-base text-gray-700 mb-1">14:00 - 15:30</p>
+        <h3 class="font-sans-body font-bold text-base text-gray-800 mb-1">村文化广场 → 唱片馆/旗帜馆</h3>
+        <p class="font-sans-body text-sm text-gray-600 mb-2">体验非遗鱼灯舞，聆听海外黑胶唱片、了解国旗背后故事</p>
+        <div class="flex items-start bg-gray-50 border border-gray-100 p-2 rounded">
+          <i class="fas fa-lightbulb text-yellow-500 mt-0.5 mr-2 text-sm"></i>
+          <p class="font-sans-body text-xs text-gray-500">鱼灯舞表演需提前咨询村委会；馆内保持安静</p>
+        </div>
+      </div>
+      
+      <!-- 行程项 5 -->
+      <div class="mb-6">
+        <div class="timeline-dot"></div>
+        <p class="font-sans-body font-bold text-base text-gray-700 mb-1">16:00 - 17:30</p>
+        <h3 class="font-sans-body font-bold text-base text-gray-800 mb-1">骑行绿道 → 乡村咖啡馆 → 村口特产店</h3>
+        <p class="font-sans-body text-sm text-gray-600 mb-2">骑行漫游田园，咖啡搭配农家小点，选购伴手礼</p>
+        <div class="flex items-start bg-gray-50 border border-gray-100 p-2 rounded">
+          <i class="fas fa-lightbulb text-yellow-500 mt-0.5 mr-2 text-sm"></i>
+          <p class="font-sans-body text-xs text-gray-500">推荐稻鱼米、梅干菜作为伴手礼</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 底部操作栏 -->
+<div class="fixed bottom-0 left-0 w-full bg-white p-4 border-t border-gray-100 z-10">
+  <button id="showPricePanel" class="w-full bg-primary text-white font-bold text-base h-12 !rounded-button">
+    立即下单
+  </button>
+</div>
+
+<!-- 价格面板 -->
+<div id="pricePanel" class="price-panel">
+  <div class="flex justify-between items-center mb-4">
+    <h3 class="font-bold text-lg">选择人数</h3>
+    <button id="closePricePanel" class="text-gray-500">
+      <i class="fas fa-times text-lg"></i>
+    </button>
+  </div>
+  
+  <!-- 人数选择器 -->
+  <div class="space-y-4 mb-6">
+    <!-- 成人选择 -->
+    <div class="flex justify-between items-center p-3 bg-gray-50 rounded-lg">
+      <div>
+        <div class="font-medium text-gray-800">成人</div>
+        <div class="text-gray-500 text-sm mt-1">￥168/人</div>
+      </div>
+      <div class="flex items-center space-x-3">
+        <button id="adultMinus" class="w-8 h-8 rounded-full bg-white border border-gray-300 flex items-center justify-center text-gray-600">
+          <i class="fas fa-minus text-xs"></i>
+        </button>
+        <span id="adultCount" class="font-bold text-gray-800 w-6 text-center">1</span>
+        <button id="adultPlus" class="w-8 h-8 rounded-full bg-white border border-gray-300 flex items-center justify-center text-gray-600">
+          <i class="fas fa-plus text-xs"></i>
+        </button>
+      </div>
+    </div>
+    
+    <!-- 儿童选择 -->
+    <div class="flex justify-between items-center p-3 bg-gray-50 rounded-lg">
+      <div>
+        <div class="font-medium text-gray-800">儿童 (3-12岁)</div>
+        <div class="text-gray-500 text-sm mt-1">￥88/人 · 3岁以下免费</div>
+      </div>
+      <div class="flex items-center space-x-3">
+        <button id="childMinus" class="w-8 h-8 rounded-full bg-white border border-gray-300 flex items-center justify-center text-gray-600">
+          <i class="fas fa-minus text-xs"></i>
+        </button>
+        <span id="childCount" class="font-bold text-gray-800 w-6 text-center">0</span>
+        <button id="childPlus" class="w-8 h-8 rounded-full bg-white border border-gray-300 flex items-center justify-center text-gray-600">
+          <i class="fas fa-plus text-xs"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+  
+  <!-- 价格明细 -->
+  <div class="mb-6">
+    <h4 class="font-medium text-gray-800 mb-3">费用明细</h4>
+    
+    <div class="space-y-3 bg-gray-50 p-3 rounded-lg">
+      <div class="flex justify-between text-sm">
+        <span class="text-gray-600">景点门票</span>
+        <span class="font-medium text-gray-800">￥100</span>
+      </div>
+      <div class="flex justify-between text-sm">
+        <span class="text-gray-600">导览服务</span>
+        <span class="font-medium text-gray-800">￥40</span>
+      </div>
+      <div class="flex justify-between text-sm">
+        <span class="text-gray-600">基础保险</span>
+        <span class="font-medium text-gray-800">￥10</span>
+      </div>
+      <div class="flex justify-between text-sm">
+        <span class="text-gray-600">服务费</span>
+        <span class="font-medium text-gray-800">￥18</span>
+      </div>
+      <div class="border-t border-gray-200 pt-2 mt-2">
+        <div class="flex justify-between text-sm font-semibold">
+          <span>小计</span>
+          <span>￥168</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- 总价和下单按钮 -->
+  <div class="border-t border-gray-200 pt-4">
+    <div class="flex justify-between items-center mb-4">
+      <div>
+        <div class="text-gray-600 text-sm">总计</div>
+        <div class="text-2xl font-bold text-secondary">￥<span id="totalPrice">168</span></div>
+      </div>
+      <button id="confirmOrder" class="bg-primary text-white font-bold text-base h-12 px-6 !rounded-button">
+        确认下单
+      </button>
+    </div>
+    <div class="text-center text-gray-500 text-xs">
+      费用包含：景点门票、导览服务、基础保险
+    </div>
+  </div>
+</div>
+
+<!-- 遮罩层 -->
+<div id="overlay" class="overlay"></div>
+
+<script>
+// 状态管理
+let adultCount = 1;
+let childCount = 0;
+const adultPrice = 168;
+const childPrice = 88;
+
+// DOM 元素
+const pricePanel = document.getElementById('pricePanel');
+const overlay = document.getElementById('overlay');
+const showPricePanelBtn = document.getElementById('showPricePanel');
+const closePricePanelBtn = document.getElementById('closePricePanel');
+const adultMinusBtn = document.getElementById('adultMinus');
+const adultPlusBtn = document.getElementById('adultPlus');
+const childMinusBtn = document.getElementById('childMinus');
+const childPlusBtn = document.getElementById('childPlus');
+const adultCountEl = document.getElementById('adultCount');
+const childCountEl = document.getElementById('childCount');
+const totalPriceEl = document.getElementById('totalPrice');
+const confirmOrderBtn = document.getElementById('confirmOrder');
+
+// 显示价格面板
+showPricePanelBtn.addEventListener('click', () => {
+  pricePanel.classList.add('open');
+  overlay.style.display = 'block';
+  document.body.style.overflow = 'hidden';
+});
+
+// 关闭价格面板
+closePricePanelBtn.addEventListener('click', closePricePanel);
+overlay.addEventListener('click', closePricePanel);
+
+function closePricePanel() {
+  pricePanel.classList.remove('open');
+  overlay.style.display = 'none';
+  document.body.style.overflow = 'auto';
+}
+
+// 更新总价
+function updateTotalPrice() {
+  const total = (adultCount * adultPrice) + (childCount * childPrice);
+  totalPriceEl.textContent = total;
+}
+
+// 人数增减逻辑
+adultPlusBtn.addEventListener('click', () => {
+  adultCount++;
+  adultCountEl.textContent = adultCount;
+  updateTotalPrice();
+});
+
+adultMinusBtn.addEventListener('click', () => {
+  if (adultCount > 1) {
+    adultCount--;
+    adultCountEl.textContent = adultCount;
+    updateTotalPrice();
+  }
+});
+
+childPlusBtn.addEventListener('click', () => {
+  childCount++;
+  childCountEl.textContent = childCount;
+  updateTotalPrice();
+});
+
+childMinusBtn.addEventListener('click', () => {
+  if (childCount > 0) {
+    childCount--;
+    childCountEl.textContent = childCount;
+    updateTotalPrice();
+  }
+});
+
+// 确认下单
+confirmOrderBtn.addEventListener('click', () => {
+  alert(`下单成功！\n成人：${adultCount}人\n儿童：${childCount}人\n总价：￥${(adultCount * adultPrice) + (childCount * childPrice)}`);
+  closePricePanel();
+});
+
+// 初始化
+updateTotalPrice();
+</script>
+</body>
+</html>
